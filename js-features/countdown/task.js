@@ -8,11 +8,3 @@ const minus = setInterval(() => {
     alert("Вы победили в конкурсе!");
   }
 }, 1000)
-
-const dead = document.getElementById("dead");
-const lost = document.getElementById("lost");
-
-
-function getHole(index) {
-  return document.getElementById(`hole${index}`)
-}
