@@ -8,12 +8,12 @@ function isVisbl(el) {
   return true;
 } 
 
-revBlocks.forEach(el => {
-  setInterval(() => {
+window.addEventListener('scroll', function() {
+  revBlocks.forEach(el => {
     if (isVisbl(el)) {
       el.classList.add('reveal_active');
     } else {
       el.classList.remove('reveal_active');
     }
-  }, 100);
-});
+  });
+})
