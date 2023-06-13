@@ -6,6 +6,8 @@ setInterval(() => {
     rcase.classList.remove('rotator__case_active');
     rcase.parentElement.firstElementChild.classList.add('rotator__case_active');
   } else {  
+    //rcase.setAttribute("style", "color: " + String(rcase.getAttribute('data-color')))
+    rcase.nextElementSibling.setAttribute("style", "color: " + String(rcase.nextElementSibling.getAttribute('data-color')))
     rcase.classList.remove('rotator__case_active');
     rcase.nextElementSibling.classList.add('rotator__case_active');
 
