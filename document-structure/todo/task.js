@@ -8,30 +8,19 @@ function diver(cls) {
   return el;
 }
 
-// window.addEventListener('keypress', (ev) => {
-//   if (ev.key === 'Enter') {
-//     const task = diver('task')
-//     task.appendChild(diver('task__title'))
-//     task.firstChild.textContent = input.value;
-//     task.insertAdjacentHTML('beforeend', '<a href="#" class="task__remove">&times;</a>')
-//     list.appendChild(task)
-  
-//     task.lastChild.addEventListener('click', () =>{
-//       list.removeChild(task)
-//     })
-//   }
-// })
-
 button.addEventListener('click', (ev) => {
   ev.preventDefault();
-  const task = diver('task');
+  let task = diver('task');
+
   task.appendChild(diver('task__title'));
   task.firstChild.textContent = input.value;
-  task.insertAdjacentHTML('beforeend', '<a href="#" class="task__remove">&times;</a>')
-  list.appendChild(task);
-  input.value = '';
 
-  task.lastChild.addEventListener('click', () =>{
-    list.removeChild(task);
-  })
+  if ((task.firstChild.textContent.trim() !== '') && (task.firstChild.textContent !== null)) {
+    task.insertAdjacentHTML('beforeend', '<a href="#" class="task__remove">&times;</a>');
+    list.appendChild(task);
+    input.value = '';
+    task.lastChild.addEventListener('click', () =>{
+      list.removeChild(task);
+    })
+  }
 })
