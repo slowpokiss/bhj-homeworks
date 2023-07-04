@@ -27,23 +27,23 @@ function diver(ind) {
 
 add.forEach((el,ind) => {
   const dv = diver(ind);
-
   el.addEventListener('click', () => {
-    const carts = document.querySelectorAll('.cart__product');
+    const carts = Array.from(document.querySelectorAll('.cart__product'));
     const product = document.querySelectorAll('.product')[ind];
     const val = Number(product.querySelector('.product__quantity-value').textContent);
 
-    if (!cart.contains(document.querySelector('.cart__product'))) {
+    if (!cart.contains(product)) { 
       dv.lastChild.textContent = val;
       cart.appendChild(dv);
     } else {
-      carts.forEach(el => {
-        if (!(el.getAttribute('data-id') === dv.getAttribute('data-id'))) {
-          cart.appendChild(dv);
-        } else {
-          dv.lastChild.textContent = Number(dv.lastChild.textContent) + val
-        }
-      });
+
+      let cartProduct = carts.find((el) => el.getAttribute('data-id') === dv.getAttribute('data-id')); 
+      if (cartProduct) {
+        dv.lastChild.textContent = Number(dv.lastChild.textContent) + val;
+      } else {
+        cart.appendChild(dv);
+      }
+      
     }
   })
 }); 
