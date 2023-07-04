@@ -4,14 +4,14 @@ ttips.forEach(el => {
   const tip = document.createElement('div');
   tip.textContent = el.title; 
   tip.classList.add('tooltip');
-  el.appendChild(tip);
+  el.after(tip);
 
+  //tip.classList.add('tooltip_active')
   el.addEventListener('click', (ev) => {
     ev.preventDefault();
     tip.classList.toggle('tooltip_active')
 
-    console.log(el);
+    console.log(el.nextElementSibling.getBoundingClientRect().height);
+    tip.style.position = 'absolute';
   })
-
-  el.style.position = 'absolute';
 });
