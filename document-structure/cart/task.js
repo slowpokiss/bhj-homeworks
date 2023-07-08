@@ -41,6 +41,7 @@ add.forEach((el,ind) => {
       if (cartProduct) {
         dv.lastChild.textContent = Number(dv.lastChild.textContent) + val;
       } else {
+        dv.lastChild.textContent = Number(dv.lastChild.textContent) + val;
         cart.appendChild(dv);
       }
       
