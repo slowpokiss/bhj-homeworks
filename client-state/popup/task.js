@@ -1,8 +1,10 @@
 const modal = document.querySelector('.modal');
-const close = document.querySelector('.modal__close')
+const close = document.querySelector('.modal__close');
+
+modal.classList.add('modal_active');
 
 if (document.cookie === 'cookie=yes') {
-  modal.classList.add('modal_active');
+  modal.classList.remove('modal_active');
 }
 
 close.addEventListener('click', () => {
